@@ -7,75 +7,62 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.model.Estado
 import com.example.myapplication.model.Praia
 import com.example.myapplication.ui.recyclerviewadapter.BuscarAdapter
-import com.example.myapplication.repository.BuscarList  // Importe a classe BuscarList
+import com.example.myapplication.repository.BuscarList
+import com.example.myapplication.ui.recyclerviewadapter.EstadoAdapter
 
-class BuscarPraiaFragment : Fragment(), BuscarAdapter.OnItemClickListener {
+class BuscarPraiaFragment : Fragment(), BuscarAdapter.OnItemClickListener, EstadoAdapter.OnItemClickListener {
 
     private lateinit var editTextPesquisa: EditText
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BuscarAdapter
+    private lateinit var recyclerViewPraias: RecyclerView
+    private lateinit var recyclerViewEstados: RecyclerView
+    private lateinit var adapterPraias: BuscarAdapter
+    private lateinit var adapterEstados: EstadoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Infla o layout do fragmento de busca de praia
         val view = inflater.inflate(R.layout.fragment_buscar_praia, container, false)
 
-        // Inicializa os componentes da UI
-        recyclerView = view.findViewById(R.id.lista_buscar_praia_recyclerview)
+        recyclerViewPraias = view.findViewById(R.id.lista_buscar_praia_recyclerview)
+        recyclerViewEstados = view.findViewById(R.id.listUF)
         editTextPesquisa = view.findViewById(R.id.pesquisar)
 
-        // Use a lista de praias da classe BuscarList
         val listaDePraiasOriginal = BuscarList.listaDePraiasSantaCatarina
+        val listaDeEstados = BuscarList.listaDeEstados
 
-        // Criando e configurando o adaptador
-        adapter = BuscarAdapter(requireContext(), listaDePraiasOriginal.toMutableList(), this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // Configurar o adaptador para as praias
+        adapterPraias = BuscarAdapter(requireContext(), listaDePraiasOriginal.toMutableList(), this)
+        recyclerViewPraias.adapter = adapterPraias
+        recyclerViewPraias.layoutManager = LinearLayoutManager(requireContext())
 
-        // Ajusta a visibilidade inicial do RecyclerView para GONE
-        recyclerView.visibility = View.GONE
+        // Configurar o adaptador para os estados
+        adapterEstados = EstadoAdapter(requireContext(), listaDeEstados, this)
+        recyclerViewEstados.adapter = adapterEstados
+        recyclerViewEstados.layoutManager = LinearLayoutManager(requireContext())
 
-        // Adicione um TextWatcher para monitorar as alterações no EditText
+        recyclerViewPraias.visibility = View.GONE
+
         editTextPesquisa.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
+            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
                 // Executa antes de qualquer alteração no texto
             }
 
-            override fun onTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
+            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
                 // Executa quando o texto está sendo alterado
             }
 
             override fun afterTextChanged(editable: Editable?) {
-                // Após o texto ser alterado, atualiza a lista de praias com base no texto atual
-                adapter.atualizaListaComTextoAtual(
-                    listaDePraiasOriginal,
-                    editTextPesquisa.text.toString()
-                )
-
-                // Ajusta a visibilidade do RecyclerView com base no texto na caixa de pesquisa
+                adapterPraias.atualizaListaComTextoAtual(listaDePraiasOriginal, editTextPesquisa.text.toString())
                 ajustarVisibilidadeLista()
             }
         })
@@ -83,21 +70,40 @@ class BuscarPraiaFragment : Fragment(), BuscarAdapter.OnItemClickListener {
         return view
     }
 
-    // Método para ajustar a visibilidade do RecyclerView com base no texto na caixa de pesquisa
     private fun ajustarVisibilidadeLista() {
-        recyclerView.visibility = if (editTextPesquisa.text.isNotEmpty()) View.VISIBLE else View.GONE
+        recyclerViewPraias.visibility = if (editTextPesquisa.text.isNotEmpty()) View.VISIBLE else View.GONE
+        recyclerViewEstados.visibility = if (editTextPesquisa.text.isEmpty()) View.VISIBLE else View.GONE
     }
-    // Lidar com o clique do item
-    // No fragmento onde você está navegando para VisualizarPraiaFragment
+
     override fun onItemClick(praia: Praia) {
         val navController = findNavController()
-
-        // Criando um bundle para enviar dados para o próximo fragmento
         val bundle = Bundle().apply {
             putString(VisualizarPraiaFragment.ARG_PRAIA_PESQUISAR, praia.pesquisar)
         }
-
-        // Navegando para o fragmento VisualizarPraiaFragment com o bundle
         navController.navigate(R.id.nav_verPraia, bundle)
     }
+
+    override fun onItemClick(estado: Estado) {
+        // Lógica para lidar com o clique em um estado
+        // Determine a ação específica e carregue a lista correspondente
+        when (estado.acao) {
+            "carregar_lista_santa_catarina" -> {
+                val listaPraias = BuscarList.listaDePraiasSantaCatarina
+                adapterPraias.atualizaListaComTextoAtual(listaPraias, editTextPesquisa.text.toString())
+            }
+            "carregar_lista_sao_paulo" -> {
+                val listaPraias = BuscarList.listaDePraiasSaoPaulo
+                adapterPraias.atualizaListaComTextoAtual(listaPraias, editTextPesquisa.text.toString())
+            }
+            "carregar_lista_bahia" -> {
+                // Implemente a lógica para carregar a lista correspondente a Bahia
+            }
+            // Adicione mais casos conforme necessário
+        }
+
+        // Notificar o adaptador de estados sobre as alterações
+        adapterEstados.notifyDataSetChanged()
+        ajustarVisibilidadeLista()
+    }
+
 }

@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentItemBuscarPraiaBinding
+import com.example.myapplication.model.Estado
 import com.example.myapplication.model.Praia
 
 class BuscarAdapter(
     private val context: Context,
     private var listaDeDados: MutableList<Praia> = mutableListOf(),
     private val itemClickListener: OnItemClickListener
-) : RecyclerView.Adapter<BuscarAdapter.ViewHolder>() {
 
+) : RecyclerView.Adapter<BuscarAdapter.ViewHolder>() {
     interface OnItemClickListener {
         fun onItemClick(praia: Praia)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Infla o layout do item de busca da praia
         val binding = FragmentItemBuscarPraiaBinding.inflate(
@@ -26,7 +26,6 @@ class BuscarAdapter(
         )
         return ViewHolder(binding)
     }
-
     class ViewHolder(private val binding: FragmentItemBuscarPraiaBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -35,7 +34,6 @@ class BuscarAdapter(
             binding.itemBuscarPraia.text = buscarPraia.pesquisar
         }
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listaDeDados[position]
         holder.vincula(item)
@@ -45,7 +43,6 @@ class BuscarAdapter(
             itemClickListener.onItemClick(item)
         }
     }
-
     override fun getItemCount(): Int = listaDeDados.size
 
     // Atualiza a lista de praias com base no texto atual

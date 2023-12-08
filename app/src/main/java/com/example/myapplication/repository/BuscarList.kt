@@ -1,19 +1,21 @@
 package com.example.myapplication.repository
+import com.example.myapplication.model.Estado
 import com.example.myapplication.model.Praia
 
 
 class BuscarList {
     companion object {
-        val listaDeEstados: List<Praia> by lazy {
+        val listaDeEstados: List<Estado> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SANTA CATARINA"),
-                Praia("SÃO PAULO"),
-                Praia("BAHIA"),
+                Estado("TODOS","carregar__todas_as_listas"),
+                Estado("SANTA CATARINA","carregar_lista_santa_catarina"),
+                Estado("SÃO PAULO","carregar_lista_sao_paulo"),
+                Estado("BAHIA","carregar_lista_bahia"),
+
                 // Adicione mais itens conforme necessário
             )
         }
-
         val listaDePraiasSantaCatarina: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
@@ -85,6 +87,18 @@ class BuscarList {
                 Praia("PRAIA DO SIRIÚ"),
                 Praia("PRAIA DOS INGLESES"),
                 Praia("PRAIA MOLE"),
+                // Adicione mais itens conforme necessário
+            )
+        }
+
+        val listaDePraiasSaoPaulo: List<Praia> by lazy {
+            // Inicialize a lista de praias de Santa Catarina aqui
+            listOf(
+                Praia("teste5"),
+                Praia("teste4"),
+                Praia("teste3"),
+                Praia("teste2"),
+                Praia("teste"),
                 // Adicione mais itens conforme necessário
             )
         }
