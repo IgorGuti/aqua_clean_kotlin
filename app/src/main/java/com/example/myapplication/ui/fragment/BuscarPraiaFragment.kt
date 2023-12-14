@@ -180,10 +180,21 @@ class BuscarPraiaFragment : Fragment(), BuscarAdapter.OnItemClickListener {
         // Lógica para obter a lista de praias com base no estado clicado
         // Substitua isso com a lógica específica do seu aplicativo
         return when (estado.nome) {
-            "SANTA CATARINA" -> BuscarList.listaDePraiasSantaCatarina
-            "SÃO PAULO" -> BuscarList.listaDePraiasSaoPaulo
+            "MARANHÃO" -> BuscarList.listaDePraiasMaranhao
+            "PIAUÍ" -> BuscarList.listaDePraiasPiaui
+            "CEARÁ" -> BuscarList.listaDePraiasCeara
+            "RIO GRANDE DO NORTE" -> BuscarList.listaDePraiasRioGrandeDoNorte
+            "PARAÍBA" -> BuscarList.listaDePraiasParnaiba
+            "PERNAMBUCO" -> BuscarList.listaDePraiasPernambuco
+            "ALAGOAS" -> BuscarList.listaDePraiasAlagoas
+            "SERGIPE" -> BuscarList.listaDePraiasSergipe
             "BAHIA" -> BuscarList.listaDePraiasBahia
-            // Adicione mais estados conforme necessário
+            "ESPÍRITO SANTO" -> BuscarList.listaDePraiasEspiritoSanto
+            "RIO DE JANEIRO" -> BuscarList.listaDePraiasRioDeJaneiro
+            "SÃO PAULO" -> BuscarList.listaDePraiasSaoPaulo
+            "PARANÁ" -> BuscarList.listaDePraiasParana
+            "SANTA CATARINA" -> BuscarList.listaDePraiasSantaCatarina
+            "RIO GRANDE DO SUL" -> BuscarList.listaDePraiasRioGrandeDoSul
             else -> emptyList() // Retorne uma lista vazia se o estado não for reconhecido
         }
     }
