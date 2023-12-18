@@ -31,9 +31,6 @@
             android:id="@+id/action_nav_favorites_to_menu_profile"
             app:destination="@id/nav_profile" />
         <action
-            android:id="@+id/action_nav_favorites_to_nav_map"
-            app:destination="@id/nav_map" />
-        <action
             android:id="@+id/action_nav_favorites_to_nav_logout"
             app:destination="@id/nav_logout" />
     </fragment>
@@ -74,9 +71,6 @@
             android:id="@+id/action_menu_profile_to_nav_assessments"
             app:destination="@id/nav_assessments" />
         <action
-            android:id="@+id/action_menu_profile_to_nav_map"
-            app:destination="@id/nav_map" />
-        <action
             android:id="@+id/action_nav_profile_to_nav_logout"
             app:destination="@id/nav_logout" />
     </fragment>
@@ -97,25 +91,6 @@
         android:name="com.example.myapplication.ui.fragment.ResetPassword"
         android:label="@string/reset_password"
         tools:layout="@layout/fragment_reset_password">
-    </fragment>
-
-
-    <fragment android:id="@+id/nav_map"
-        android:name="com.example.myapplication.ui.fragment.MapFragment"
-        android:label="@string/pagina_map"
-        tools:layout="@layout/fragment_map">
-        <action
-            android:id="@+id/action_nav_map_to_menu_profile"
-            app:destination="@id/nav_profile" />
-        <action
-            android:id="@+id/action_nav_map_to_nav_favorites"
-            app:destination="@id/nav_favorites" />
-        <action
-            android:id="@+id/action_nav_map_to_nav_assessments"
-            app:destination="@id/nav_assessments" />
-        <action
-            android:id="@+id/action_nav_map_to_nav_logout"
-            app:destination="@id/nav_logout" />
     </fragment>
 
     <fragment android:id="@+id/nav_about"

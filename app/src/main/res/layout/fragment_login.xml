@@ -86,6 +86,7 @@
         android:layout_height="35dp"
         android:background="?attr/selectableItemBackground"
         android:src="@drawable/olho_fechado"
+        android:contentDescription="botão em formato de olho para aberto ou fechado visualizar senha"
         app:layout_constraintBottom_toBottomOf="@+id/login_senha"
         app:layout_constraintEnd_toEndOf="@+id/login_senha"
         app:layout_constraintTop_toTopOf="@+id/login_senha" />

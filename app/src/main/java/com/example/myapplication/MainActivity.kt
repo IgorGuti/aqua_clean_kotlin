@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         // Define as configurações da AppBar, especificando os destinos de menu e o DrawerLayout
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_favorites , R.id.nav_assessments,  R.id.nav_profile,  R.id.nav_map
+                R.id.nav_favorites , R.id.nav_assessments,  R.id.nav_profile
             ), drawerLayout
         )
 

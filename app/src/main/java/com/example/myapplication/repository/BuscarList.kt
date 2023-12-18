@@ -8,90 +8,90 @@ class BuscarList {
         val listaDeEstados: List<Estado> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Estado("AMAPA"),
-                Estado("MARANHÃO"),
-                Estado("PIAUÍ"),
-                Estado("CEARÁ"),
-                Estado("RIO GRANDE DO NORTE"),
-                Estado("PARAÍBA"),
-                Estado("PERNAMBUCO"),
-                Estado("ALAGOAS"),
-                Estado("SERGIPE"),
+                //Estado("AMAPA"),
+                //Estado("MARANHÃO"),
+                //Estado("PIAUÍ"),
+                //Estado("CEARÁ"),
+                //Estado("RIO GRANDE DO NORTE"),
+                //Estado("PARAÍBA"),
+                //Estado("PERNAMBUCO"),
+                //Estado("ALAGOAS"),
+                //Estado("SERGIPE"),
                 Estado("BAHIA"),
                 Estado("ESPÍRITO SANTO"),
-                Estado("RIO DE JANEIRO"),
+                //Estado("RIO DE JANEIRO"),
                 Estado("SÃO PAULO"),
-                Estado("PARANÁ"),
+                //Estado("PARANÁ"),
                 Estado("SANTA CATARINA"),
-                Estado("RIO GRANDE DO SUL"),
+                //Estado("RIO GRANDE DO SUL"),
                 // Adicione mais itens conforme necessário
             )
         }
         val listaDePraiasAmapa: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
         val listaDePraiasMaranhao: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
         val listaDePraiasPiaui: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
         val listaDePraiasCeara: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
         val listaDePraiasRioGrandeDoNorte: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
         val listaDePraiasParnaiba: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
         val listaDePraiasPernambuco: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
         val listaDePraiasAlagoas: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
         val listaDePraiasSergipe: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
@@ -538,8 +538,8 @@ class BuscarList {
         val listaDePraiasParana: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
 
@@ -620,8 +620,8 @@ class BuscarList {
         val listaDePraiasRioGrandeDoSul: List<Praia> by lazy {
             // Inicialize a lista de praias de Santa Catarina aqui
             listOf(
-                Praia("SaoPaulo"),
-                Praia("SaoPaulo1"),
+                Praia("Exemplo"),
+                Praia("Exemplo1"),
             )
         }
     }
